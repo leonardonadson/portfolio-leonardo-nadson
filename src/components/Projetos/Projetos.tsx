@@ -149,16 +149,16 @@ const Projetos = () => {
       </div>
 
       {/* Renderização Dinâmica dos Cards */}
-      <div className="container flex justify-between flex-wrap gap-6 py-10">
+      <div className="container flex justify-between flex-wrap gap-6 py-10 p-5">
         {listaProjetos.map((projeto) => (
           <div
             key={projeto.id}
-            className="py-6 px-4 md:py-8 md:px-6 flex flex-start items-center align-middle gap-8 bg-[rgba(104,9,189,0.1)] rounded-[20px] mx-0 md:mx-0 md:w-[48%]"
+            className="py-8 px-10 md:py-8 md:px-6 md:flex flex-start items-center align-middle gap-8 bg-[rgba(104,9,189,0.1)] rounded-[20px] mx-0 md:mx-0 md:w-[48%]"
           >
-            <div className="w-1/2">
+            <div className="w-full flex justify-center md:w-1/2">
               <img src={projeto.imagem} alt={projeto.nome} />
             </div>
-            <div className="flex flex-col gap-4 w-1/2">
+            <div className="flex flex-col gap-4 pt-6 md:p-0 md:w-1/2">
               <div className="flex flex-wrap gap-2">
                 {projeto.tags.map((tag, index) => (
                   <p
