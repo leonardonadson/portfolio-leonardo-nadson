@@ -1,5 +1,5 @@
 import avatar from "../../assets/inicio/bemvindo_avatar.png";
-import WhatsApp from "../../assets/inicio/whatsapp.svg"
+import WhatsApp from "../../assets/contatos/WhatsApp.svg"
 import Download from "../../assets/inicio/Download.svg";
 
 const Inicio = () => {
@@ -25,7 +25,7 @@ const Inicio = () => {
 
             <button className="bg-dark text-white border border-primary font-semibold px-5 py-2 rounded-[20px] hover:bg-primary transition">
               <a href="/curriculo" className="flex items-center gap-2 group">
-                <img src={WhatsApp} alt="WhatsApp Icone" />
+                <img className="w-[18.5px] h-[18.5px]" src={WhatsApp} alt="WhatsApp Icone" />
                 Vamos conversar?
               </a>
             </button>
