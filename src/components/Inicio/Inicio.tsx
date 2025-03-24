@@ -17,14 +17,14 @@ const Inicio = () => {
 
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <button className="bg-primary text-white font-semibold px-5 py-2 rounded-[20px] hover:bg-secondary transition">
-              <a href="/curriculo" className="flex items-center gap-2 group">
+              <a href="https://drive.google.com/file/d/1GhodCZwCUCB1-w5Vor_mtS69MOfxn-PU/view?usp=sharing" className="flex items-center gap-2 group" target="_blank">
                 <img src={Download} alt="Download Icone" />
                 Curriculo
               </a>
             </button>
 
             <button className="bg-dark text-white border border-primary font-semibold px-5 py-2 rounded-[20px] hover:bg-primary transition">
-              <a href="/curriculo" className="flex items-center gap-2 group">
+              <a href="https://wa.me/5584988343084" className="flex items-center gap-2 group" target="_blank">
                 <img className="w-[18.5px] h-[18.5px]" src={WhatsApp} alt="WhatsApp Icone" />
                 Vamos conversar?
               </a>

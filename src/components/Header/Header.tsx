@@ -4,27 +4,27 @@ const headeritens =[
     {
         id: 1,
         name: "Apresentação",
-        path: "/apresentacao"
+        path: "#apresentacao"
     },
     {
         id: 2,
         name: "Projetos",
-        path: "/projetos"
+        path: "#projetos"
     },
     {
         id: 3,
         name: "Trajetória",
-        path: "/tajetoria"
+        path: "#trajetoria"
     },
     {
         id: 4,
         name: "Skills",
-        path: "/skills"
+        path: "#skills"
     },
     {
         id: 5,
         name: "Contatos",
-        path: "/contatos"
+        path: "#contatos"
     }
 ]
 

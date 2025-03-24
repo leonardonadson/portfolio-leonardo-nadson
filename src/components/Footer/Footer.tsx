@@ -36,19 +36,19 @@ const footeredes = [
     id: 1,
     name: "Linkedin",
     img: Linkedin,
-    link: "#",
+    link: "https://www.linkedin.com/in/leonardonadson/",
   },
   {
     id: 2,
     name: "Instagram",
     img: Instagram,
-    link: "#",
+    link: "https://www.instagram.com/leonadsom/",
   },
   {
     id: 3,
     name: "Site",
     img: Site,
-    link: "#",
+    link: "https://leonardonadson.github.io/",
   },
 ];
 

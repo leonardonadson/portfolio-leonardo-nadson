@@ -13,7 +13,7 @@ const Sobre = () => {
             <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold">
               Sobre
             </h2>
-            <h1 className="text-white font-releway font-semibold text-4xl">
+            <h1 className="text-white font-releway font-semibold text-4xl" id="apresentacao">
               Quem sou
             </h1>
           </div>
@@ -35,11 +35,11 @@ const Sobre = () => {
               habilidades para entregar projetos de qualidade.
             </p>
             <div className="flex gap-4">
-              <a href="#">
-                <img className="w-15 h-15 hover:fill-[#ed7878]" src={linkedin} alt="Linkedin" />
+              <a href="https://www.linkedin.com/in/leonardonadson/" className="" target="_blank">
+                <img className="w-15 h-15" src={linkedin} alt="Linkedin" />
               </a>
-              <a href="#">
-                <img className="w-15 h-15" src={github} alt="Github" />
+              <a href="https://github.com/leonardonadson" className="" target="_blank">
+                <img className="w-15 h-15" src={github} alt="Github"/>
               </a>
             </div>
           </div>

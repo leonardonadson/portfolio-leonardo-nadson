@@ -41,7 +41,7 @@ const listaProjetos = [
     tags: ["Online", "Evento", "WordPress"],
     imagem: EXPOTEC,
     descricao: "A Exposição Científica, Tecnológica e Cultural do IFRN Campus Natal Central ",
-    link: "#",
+    link: "https://expotec.cnat.ifrn.edu.br",
   },
   {
     id: 2,
@@ -49,7 +49,7 @@ const listaProjetos = [
     tags: ["Online", "Evento", "WordPress"],
     imagem: ENCOM,
     descricao: "XIV Conferência Nacional em Comunicações, Redes e Segurança da Informação",
-    link: "#",
+    link: "https://encom.ifrn.edu.br",
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ const listaProjetos = [
     tags: ["Online", "Institucional", "WordPress"],
     imagem: PROFUTURO,
     descricao: "O ProFuturo é um projeto social com o objetivo de promover o reassentamento de 240 famílias do Rio Grande do Norte",
-    link: "#",
+    link: "https://profuturoifrn.edu.br",
   },
   {
     id: 4,
@@ -65,13 +65,13 @@ const listaProjetos = [
     tags: ["Online", "Institucional", "WordPress"],
     imagem: DIATINF,
     descricao: "A Diretoria Acadêmica de Gestão e Tecnologia da Informação do IFRN Campus Natal Central",
-    link: "#",
+    link: "https://diatinf.ifrn.edu.br",
   },
   {
     id: 5,
     nome: "PROFUTURO BI",
     imagem: PROFUTUROBI,
-    tags: ["Online", "Institucional", "Django"],
+    tags: ["GitHub", "Institucional", "Django"],
     descricao: "O ProFuturo BI é um sistema de Login para a exibição dos dados do PowerBI restrito do Projeto ProFuturo do IFRN",
     link: "#",
   },
@@ -81,7 +81,7 @@ const listaProjetos = [
     tags: ["Online", "Institucional", "WordPress"],
     imagem: LAMIE,
     descricao: "Laboratório de Manutenção de Instalações Eletricas do IFRN Campus Natal Central",
-    link: "#",
+    link: "https://lamie.cnat.ifrn.edu.br",
   },
   {
     id: 7,
@@ -89,7 +89,7 @@ const listaProjetos = [
     tags: ["Online", "Institucional", "WordPress"],
     imagem: CSA,
     descricao: "O Núcleo de Extensão e Prática Profissional – Centro de Soluções Aplicadas do IFRN Campus Natal Central ",
-    link: "#",
+    link: "https://csa.cnat.ifrn.edu.br",
   },
   {
     id: 8,
@@ -97,7 +97,7 @@ const listaProjetos = [
     tags: ["Online", "Institucional", "WordPress"],
     imagem: DIACIN,
     descricao: "A Diretoria Acadêmica de Indústria do IFRN Campus Natal Central",
-    link: "#",
+    link: "https://diacin.cnat.ifrn.edu.br",
   },
   {
     id: 9,
@@ -105,7 +105,7 @@ const listaProjetos = [
     tags: ["Online", "Institucional", "WordPress"],
     imagem: DIREX,
     descricao: "A Diretoria de Extensão do IFRN Campus Natal Central ",
-    link: "#",
+    link: "https://direx.cnat.ifrn.edu.br",
   },
   {
     id: 10,
@@ -113,12 +113,12 @@ const listaProjetos = [
     tags: ["Online", "Institucional", "WordPress"],
     imagem: NEPPCON,
     descricao: "O Núcleo de Extensão e Prática Profissional Em Contrução Cívil do IFRN Campus Natal Central ",
-    link: "#",
+    link: "https://neppcon.cnat.ifrn.edu.br",
   },
   {
     id: 11,
     nome: "CURAM",
-    tags: ["Online", "Institucional", "WordPress"],
+    tags: ["GitHub", "Acadêmico", "ReactNative"],
     imagem: CURAM,
     descricao: "Aplicativo mobile de integração médica que conecta pacientes com profissionais de saúde licenciados desenvolvido no IFRN Campus Natal Central ",
     link: "#",
@@ -126,7 +126,7 @@ const listaProjetos = [
   {
     id: 12,
     nome: "GORDON STORE",
-    tags: ["Online", "Institucional", "WordPress"],
+    tags: ["GitHub", "Acadêmico", "C#"],
     imagem: GORDON,
     descricao: "E-commerce web com experiência do usuário totalmente pensada para o público geek desenvolvido no IFRN Campus Natal Central ",
     link: "#",
@@ -139,7 +139,7 @@ const Projetos = () => {
       {/* Título da Seção */}
       <div className="container px-6 md:px-4">
         <div className="flex flex-col items-start !justify-start pt-6 gap-2.5">
-          <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold">
+          <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold" id="projetos">
             Portfólio
           </h2>
           <h1 className="text-white font-releway font-semibold text-4xl">
@@ -173,7 +173,7 @@ const Projetos = () => {
               <p className="font-bold text-2xl">{projeto.nome}</p>
               <p className="text-[rgba(255,255,255,0.6)]">{projeto.descricao}</p>
               <button className="bg-primary text-white font-semibold px-5 py-2 rounded-[10px] hover:bg-secondary transition w-fit">
-                <a href={projeto.link} className="flex items-center gap-2 group">
+                <a href={projeto.link} className="flex items-center gap-2 group" target="_blank">
                   Conferir
                 </a>
               </button>
