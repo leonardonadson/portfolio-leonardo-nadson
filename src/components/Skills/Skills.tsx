@@ -5,7 +5,7 @@ import CSS from "../../assets/hard_skills/CSS3.svg";
 import JS from "../../assets/hard_skills/Javascript.svg";
 import TS from "../../assets/hard_skills/TypeScript.svg";
 import WORDPRESS from "../../assets/hard_skills/Wordpress.svg";
-import PHP from "../../assets/hard_skills/PHP.svg";
+import PHP from "../../assets/hard_skills/Php.svg";
 import PYTHON from "../../assets/hard_skills/Python.svg";
 import CSHARP from "../../assets/hard_skills/C-sharp.svg";
 import C from "../../assets/hard_skills/C.svg";
