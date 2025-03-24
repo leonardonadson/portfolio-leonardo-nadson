@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /* Definindo variáveis de fonte */
+  --font-inter: "Inter", sans-serif;
+  --font-raleway: "Raleway", sans-serif;
+
+  /* Definindo variáveis de cores */
+  --color-primary: #6809BD;
+  --color-secondary: #33085A;
+  --color-light: #f7f7f7;
+  --color-dark: #160928;
+  --color-dark2: #0D0917;
+
+  /* Definindo a configuração do container */
+  --container-center: true;
+  --container-padding-default: 1rem;
+  --container-padding-sm: 2rem;
+  --container-padding-lg: 4rem;
+  --container-padding-xl: 5rem;
+  --container-padding-2xl: 6rem;
+}
+
+@layer components{
+    .primary-btn{
+        @apply inline-block bg-primary text-white font-semibold rounded-lg hover:bg-secondary duration-200 shadow-[0px_10px_8px_-7px_#ffd978]
+        hover:shadow-[0px_10px_8px_-7px_#ffd978] py-2 px-6;
+
+    }
+}
+
+@layer utilities{
+  .drop-shadow{
+    filter: drop-shadow(6px 8px 10px rgba(0, 0, 0, 0.5));
+  }
+  .container{
+    margin: 0 auto;
+  }
+}
+
