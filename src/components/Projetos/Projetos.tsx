@@ -133,7 +133,7 @@ const listaProjetos = [
   },
 ];
 
-const Projetos = () => {
+const Projetos = () => { 
   return (
     <section className="bg-dark2 py-12 text-white">
       {/* Título da Seção */}
