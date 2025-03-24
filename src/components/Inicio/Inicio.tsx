@@ -1,5 +1,5 @@
 import avatar from "../../assets/inicio/bemvindo_avatar.png";
-import WhatsApp from "../../assets/inicio/Whatsapp.svg";
+import WhatsApp from "../../assets/contatos/WhatsApp.svg"
 import Download from "../../assets/inicio/Download.svg";
 
 const Inicio = () => {
