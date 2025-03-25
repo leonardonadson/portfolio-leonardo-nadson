@@ -191,7 +191,7 @@ const Projetos = () => {
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className="container md:px-18 flex justify-between flex-wrap gap-6 py-10 p-5"
+        className="container md:px-18 flex justify-between flex-wrap xl:gap-6 gap-4 py-10 p-5"
       >
         {listaProjetos.map((projeto) => (
           <motion.div
@@ -206,17 +206,17 @@ const Projetos = () => {
               ease: "easeInOut",
             }}
             key={projeto.id}
-            className="py-8 px-10 md:py-8 md:px-6 md:flex flex-start items-center align-middle gap-8 bg-[rgba(104,9,189,0.1)] rounded-[20px] mx-0 md:mx-0 md:w-[48%]"
+            className="py-8 px-10 md:py-8 md:px-6 md:flex flex-col xl:flex-row flex-wrap xl:flex-nowrap align-middle flex-start md:items-start xl:items-center  gap-3 xl:gap-8 bg-[rgba(104,9,189,0.1)] rounded-[20px] mx-0 md:mx-0 md:w-[32%] xl:w-[48%]"
           >
-            <div className="w-full flex justify-center md:w-1/2">
-              <img src={projeto.imagem} alt={projeto.nome} />
+            <div className="w-full flex justify-center xl:w-1/2">
+              <img src={projeto.imagem} alt={projeto.nome} className="w-full"/>
             </div>
-            <div className="flex flex-col gap-4 pt-6 md:p-0 md:w-1/2">
-              <div className="flex flex-wrap gap-2">
+            <div className="flex flex-col gap-4 pt-6 md:p-0 xl:w-1/2">
+              <div className="flex xl:flex-nowrap flex-wrap gap-2">
                 {projeto.tags.map((tag, index) => (
                   <p
                     key={index}
-                    className="text-primary text-sm  font-semibold px-2 py-1 rounded-[10px] bg-[rgba(104,9,189,0.1)] w-fit"
+                    className="text-primary xl:text-sm  md:text-xs  font-semibold px-2 py-1 rounded-[10px] bg-[rgba(104,9,189,0.1)] w-fit"
                     style={tagStyles[tag as keyof typeof tagStyles] || {}}
                   >
                     {tag}
@@ -233,7 +233,7 @@ const Projetos = () => {
               className="bg-primary text-white font-semibold px-5 py-2 rounded-[10px] hover:bg-secondary active:bg-secondary transition w-fit">
                 <a
                   href={projeto.link}
-                  className="flex items-center gap-2 group"
+                  className="flex items-center gap-2 group "
                   target="_blank"
                 >
                   Conferir

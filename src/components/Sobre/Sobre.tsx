@@ -58,7 +58,7 @@ const Sobre = () => {
               delay: 1,
               ease: "easeInOut",
             }}
-            src={foto_pessoal} alt="Foto Pessoal" className="md:max-w-[500px]"/>
+            src={foto_pessoal} alt="Foto Pessoal" className="w-full"/>
           </div>
 
           <motion.div 
