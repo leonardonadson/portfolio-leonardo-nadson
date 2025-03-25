@@ -69,7 +69,7 @@ const Footer = () => {
 
             <div className="w-1/2">
               <nav>
-                <ul className="flex gap-8 justify-end :hover-decoration-primary">
+                <ul className="flex gap-8 justify-end :hover-decoration-primary active:decoration-primary">
                   {footeredes.map((rede) => (
                     <li key={rede.id}>
                       <a href={rede.link}>

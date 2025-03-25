@@ -172,7 +172,7 @@ const Projetos = () => {
               </div>
               <p className="font-bold text-2xl">{projeto.nome}</p>
               <p className="text-[rgba(255,255,255,0.6)]">{projeto.descricao}</p>
-              <button className="bg-primary text-white font-semibold px-5 py-2 rounded-[10px] hover:bg-secondary transition w-fit">
+              <button className="bg-primary text-white font-semibold px-5 py-2 rounded-[10px] hover:bg-secondary active:bg-secondary transition w-fit">
                 <a href={projeto.link} className="flex items-center gap-2 group" target="_blank">
                   Conferir
                 </a>

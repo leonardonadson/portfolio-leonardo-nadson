@@ -41,7 +41,7 @@ const Contatos = () => {
       <div className="bg-[rgba(104,9,189,0.1)]">
         <div className="container px-8 py-8 m-0q">
           {/* Título da Seção */}
-          <div className="!flex flex-col items-center !justify-center text-center pt-6 gap-2.5 md:w-[48]">
+          <div className="!flex flex-col items-center !justify-center text-center pt-6 gap-2.5 w-full">
             <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold" id="contatos">
               Contato
             </h2>
