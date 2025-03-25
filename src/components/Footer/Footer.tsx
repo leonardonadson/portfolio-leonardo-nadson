@@ -57,7 +57,7 @@ const Footer = () => {
     <footer className="bg-[#0D0917] border-solid border-t-[1px] border-[#ECECEC] font-inter font-semibold">
       <section className="bg-[rgba(104,9,189,0.1)]">
        
-       <div className="container flex flex-col justify-between items-start !md:px-8 md:pt-6 md:pb-6 py-10 px-8 sm:p-8">
+       <div className="container flex flex-col justify-between items-start md:px-18 md:pt-6 md:pb-6 py-10 px-8 sm:p-8">
           
           <div className="w-full flex flex-wrap justify-between items-center align-center">
 
