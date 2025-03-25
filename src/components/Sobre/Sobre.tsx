@@ -7,7 +7,7 @@ const Sobre = () => {
       <div className="bg-[rgba(104,9,189,0.1)] py-12 gap-0">
         {/* Título da Seção */}
 
-        <div className="container px-6 md:px-4">
+        <div className="container px-6 md:px-18">
 
           <div className="flex flex-col items-start !justify-start pt-6 gap-2.5">
             <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold">
@@ -20,10 +20,10 @@ const Sobre = () => {
 
         </div>
 
-        <div className="container flex flex-col md:flex-row gap-16 px-6 md:px-4">
+        <div className="container flex flex-col md:flex-row gap-16 px-6 md:px-18">
 
           <div className="flex flex-col items-center md:items-start !justify-center md:w-1/2 ">
-            <img  src={foto_pessoal} alt="Foto Pessoal" />
+            <img  src={foto_pessoal} alt="Foto Pessoal" className="md:max-w-[500px]"/>
           </div>
 
           <div className="flex flex-col m-auto gap-8 md:w-1/2">

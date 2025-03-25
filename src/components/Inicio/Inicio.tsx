@@ -5,7 +5,7 @@ import Download from "../../assets/inicio/Download.svg";
 const Inicio = () => {
   return (
     <section className="bg-dark2 pt-4 pb-8 font-raleway">
-      <div className="container flex flex-col-reverse items-center md:flex-row md:justify-between">
+      <div className="container flex flex-col-reverse items-center md:px-18  md:flex-row md:justify-between">
 
         <div className="flex flex-col mt-8 md:mt-0 md:w-1/2 text-center md:text-left gap-2">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-2 max-w-xs mx-auto md:mx-0 leading-tight md:!leading-snug">
@@ -36,7 +36,7 @@ const Inicio = () => {
           <img
             src={avatar}
             alt="Avatar Leonardo Nadson"
-            className="w-[90%] md:w-[75%] max-w-md md:max-w-[1034px] min-h-[219px]"
+            className="w-[90%] md:w-[75%] md:max-w-[550px] min-h-[219px]"
           />
         </div>
 

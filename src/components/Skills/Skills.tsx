@@ -106,7 +106,7 @@ const softSkills = [
 const Skills = () => {
   return (
     <section className="bg-dark2 text-white py-12">
-      <div className="container px-6 md:px-4">
+      <div className="container px-6 md:px-18">
         {/* Título da Seção */}
         <div className="!flex flex-col items-center !justify-center text-center pt-6 gap-2.5 w-full">
           <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold" id="skills">
@@ -132,7 +132,7 @@ const Skills = () => {
         </div>
       </div>
 
-      <div className="container px-6 md:px-4">
+      <div className="container px-6 md:px-18">
         {/* Título da Seção */}
         <div className="!flex flex-col items-center !justify-center text-center pt-6 gap-2.5 w-full">
           <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold">

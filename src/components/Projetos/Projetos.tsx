@@ -73,7 +73,7 @@ const listaProjetos = [
     imagem: PROFUTUROBI,
     tags: ["GitHub", "Institucional", "Django"],
     descricao: "O ProFuturo BI é um sistema de Login para a exibição dos dados do PowerBI restrito do Projeto ProFuturo do IFRN",
-    link: "#",
+    link: "https://github.com/leonardonadson/Login-ProFuturo-BI",
   },
   {
     id: 6,
@@ -121,7 +121,7 @@ const listaProjetos = [
     tags: ["GitHub", "Acadêmico", "ReactNative"],
     imagem: CURAM,
     descricao: "Aplicativo mobile de integração médica que conecta pacientes com profissionais de saúde licenciados desenvolvido no IFRN Campus Natal Central ",
-    link: "#",
+    link: "https://github.com/leonardonadson/curam-back-end.git",
   },
   {
     id: 12,
@@ -129,7 +129,7 @@ const listaProjetos = [
     tags: ["GitHub", "Acadêmico", "C#"],
     imagem: GORDON,
     descricao: "E-commerce web com experiência do usuário totalmente pensada para o público geek desenvolvido no IFRN Campus Natal Central ",
-    link: "#",
+    link: "https://github.com/leonardonadson/gordon-store",
   },
 ];
 
@@ -137,7 +137,7 @@ const Projetos = () => {
   return (
     <section className="bg-dark2 py-12 text-white">
       {/* Título da Seção */}
-      <div className="container px-6 md:px-4">
+      <div className="container px-6 md:px-18">
         <div className="flex flex-col items-start !justify-start pt-6 gap-2.5">
           <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold" id="projetos">
             Portfólio
@@ -149,7 +149,7 @@ const Projetos = () => {
       </div>
 
       {/* Renderização Dinâmica dos Cards */}
-      <div className="container flex justify-between flex-wrap gap-6 py-10 p-5">
+      <div className="container md:px-18 flex justify-between flex-wrap gap-6 py-10 p-5">
         {listaProjetos.map((projeto) => (
           <div
             key={projeto.id}

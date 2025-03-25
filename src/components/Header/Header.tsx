@@ -32,7 +32,7 @@ const headeritens =[
 const Header = () => {
   return (
     <header className="bg-[#0D0917] md:pt-6 md:pb-6 pt-8 pb-8 pl-8 md:pl-2 pr-2sm:p-8 border-solid border-b-[1px] border-[#ECECEC] font-inter font-semibold">
-        <section className="container flex justify-between items-center">
+        <section className="container md:px-18 flex justify-between items-center">
             <div className="w-1/2 max-w-35 sm:w-1/6">
             <a href="/"><img src={Logo} alt="Logo"/></a>
             </div>

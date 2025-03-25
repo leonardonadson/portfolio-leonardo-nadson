@@ -29,9 +29,9 @@ const Carreira = () => {
   return (
     <section className="bg-dark2 text-white">
       <div className="bg-[rgba(104,9,189,0.1)] ">
-        <div className="container px-6 md:px-4">
+        <div className="container px-6 md:px-18 py-8">
           {/* Título da Seção */}
-          <div className="!flex flex-col items-center !justify-center text-center pt-6 gap-2.5 w-full">
+          <div className="!flex flex-col items-center !justify-center text-center gap-2.5 w-full">
             <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold" id="trajetoria">
               Carreira
             </h2>
@@ -40,7 +40,7 @@ const Carreira = () => {
             </h1>
           </div>
 
-          <div className="container flex flex-col md:flex-row gap-16 py-8">
+          <div className="container flex flex-col md:flex-row gap-16 pt-8">
             <div className="w-full">
               <h3 className="text-2xl font-semibold ">Acadêmica</h3>
 
@@ -64,7 +64,7 @@ const Carreira = () => {
             </div>
           </div>
 
-          <div className="container flex flex-col md:flex-row gap-16 py-8">
+          <div className="container flex flex-col md:flex-row gap-16 pt-8">
             <div className="w-full">
               <h3 className="text-2xl font-semibold ">Profissional</h3>
 

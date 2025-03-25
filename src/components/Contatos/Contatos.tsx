@@ -39,7 +39,7 @@ const Contatos = () => {
   return (
     <section className="bg-dark2">
       <div className="bg-[rgba(104,9,189,0.1)]">
-        <div className="container px-8 py-8 m-0q">
+        <div className="container md:px-18 py-8">
           {/* Título da Seção */}
           <div className="!flex flex-col items-center !justify-center text-center pt-6 gap-2.5 w-full">
             <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold" id="contatos">
