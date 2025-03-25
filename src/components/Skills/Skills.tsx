@@ -12,6 +12,8 @@ import C from "../../assets/hard_skills/C.svg";
 import GITHUB from "../../assets/hard_skills/Github.svg";
 import GIT from "../../assets/hard_skills/Git.svg";
 
+import { motion } from "motion/react";
+
 const hardSkills = [
   {
     id: 1,
@@ -109,16 +111,58 @@ const Skills = () => {
       <div className="container px-6 md:px-18">
         {/* Título da Seção */}
         <div className="!flex flex-col items-center !justify-center text-center pt-6 gap-2.5 w-full">
-          <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold" id="skills">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              duration: 0.5,
+              delay: 0.4,
+              ease: "easeInOut",
+            }}
+            className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold"
+            id="skills"
+          >
             Hard
-          </h2>
-          <h1 className="text-white font-releway font-semibold text-4xl">
+          </motion.h2>
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              duration: 0.7,
+              delay: 0.6,
+              ease: "easeInOut",
+            }}
+            className="text-white font-releway font-semibold text-4xl"
+          >
             Tecnologias
-          </h1>
+          </motion.h1>
         </div>
 
-        <div className="w-full flex justify-center items-center align-center">
-          <div className="flex flex-wrap justify-center items-center align-center py-6 md:py-8 md:max-w-[60%] gap-5">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="w-full flex justify-center items-center align-center"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              duration: 1,
+              delay: 1.2,
+              ease: "easeInOut",
+            }}
+            className="flex flex-wrap justify-center items-center align-center py-6 md:py-8 md:max-w-[60%] gap-5"
+          >
             {hardSkills.map((hardSkill) => (
               <div key={hardSkill.id} className=" w-fit pt-6 md:p-0">
                 <img
@@ -128,29 +172,71 @@ const Skills = () => {
                 />
               </div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className="container px-6 md:px-18">
         {/* Título da Seção */}
         <div className="!flex flex-col items-center !justify-center text-center pt-6 gap-2.5 w-full">
-          <h2 className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              duration: 0.5,
+              delay: 1.4,
+              ease: "easeInOut",
+            }}
+            className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold"
+          >
             Soft
-          </h2>
-          <h1 className="text-white font-releway font-semibold text-4xl">
+          </motion.h2>
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              duration: 0.7,
+              delay: 2,
+              ease: "easeInOut",
+            }}
+            className="text-white font-releway font-semibold text-4xl"
+          >
             Habilidades
-          </h1>
+          </motion.h1>
         </div>
 
         <div className="w-full flex justify-center items-center align-center">
-          <div className="flex flex-wrap justify-center items-center align-center py-6 md:py-8  gap-5">
-          {softSkills.map((softSkill) => (
-            <div key={softSkill.id} className="bg-[rgba(104,9,189,0.1)] px-6 py-6 rounded-[20px] border-1 border-[rgba(104,9,189,0.5)] hover:bg-[rgba(104,9,189,0.3)]">
-              <p className="font-semibold text-lg">{softSkill.name}</p> 
-            </div>
-          ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center items-center align-center py-6 md:py-8  gap-5"
+          >
+            {softSkills.map((softSkill) => (
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                viewport={{ once: true }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  duration: 1,
+                  delay: 2.2,
+                  ease: "easeInOut",
+                }}
+                key={softSkill.id}
+                className="bg-[rgba(104,9,189,0.1)] px-6 py-6 rounded-[20px] border-1 border-[rgba(104,9,189,0.5)] hover:bg-[rgba(104,9,189,0.3)]"
+              >
+                <p className="font-semibold text-lg">{softSkill.name}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
