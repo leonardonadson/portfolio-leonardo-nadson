@@ -202,43 +202,49 @@ const Projetos = () => {
               type: "spring",
               stiffness: 100,
               duration: 1,
-              delay: 0.5, 
+              delay: 0.5,
               ease: "easeInOut",
             }}
             key={projeto.id}
-            className="py-8 px-10 md:py-8 md:px-6 md:flex flex-col xl:flex-row flex-wrap xl:flex-nowrap align-middle flex-start md:items-start xl:items-center  gap-3 xl:gap-8 bg-[rgba(104,9,189,0.1)] rounded-[20px] mx-0 md:mx-0 md:w-[32%] xl:w-[48%]"
+            className="py-8 px-10 md:py-8 md:px-6 md:flex flex-col xl:flex-row flex-wrap xl:flex-nowrap align-middle flex-start md:items-start xl:items-center  gap-3 xl:gap-8 bg-[rgba(104,9,189,0.1)] rounded-[20px] mx-0 md:mx-0 lg:w-[32%] xl:w-[48%] w-full"
           >
             <div className="w-full flex justify-center xl:w-1/2">
-              <img src={projeto.imagem} alt={projeto.nome} className="w-full"/>
+              <img src={projeto.imagem} alt={projeto.nome} className="w-full" />
             </div>
-            <div className="flex flex-col gap-4 pt-6 md:p-0 xl:w-1/2">
-              <div className="flex xl:flex-nowrap flex-wrap gap-2">
-                {projeto.tags.map((tag, index) => (
-                  <p
-                    key={index}
-                    className="text-primary xl:text-sm  md:text-xs  font-semibold px-2 py-1 rounded-[10px] bg-[rgba(104,9,189,0.1)] w-fit"
-                    style={tagStyles[tag as keyof typeof tagStyles] || {}}
-                  >
-                    {tag}
-                  </p>
-                ))}
+
+            <div className="flex flex-col justify-between flex-auto gap-4 pt-6 md:p-0 xl:w-1/2">
+              <div className="flex flex-col gap-5">
+                <div className="flex xl:flex-nowrap flex-wrap gap-2">
+                  {projeto.tags.map((tag, index) => (
+                    <p
+                      key={index}
+                      className="text-primary xl:text-sm  md:text-xs  font-semibold px-2 py-1 rounded-[10px] bg-[rgba(104,9,189,0.1)] w-fit"
+                      style={tagStyles[tag as keyof typeof tagStyles] || {}}
+                    >
+                      {tag}
+                    </p>
+                  ))}
+                </div>
+                <p className="font-bold text-2xl">{projeto.nome}</p>
+                <p className="text-[rgba(255,255,255,0.6)]">
+                  {projeto.descricao}
+                </p>
               </div>
-              <p className="font-bold text-2xl">{projeto.nome}</p>
-              <p className="text-[rgba(255,255,255,0.6)]">
-                {projeto.descricao}
-              </p>
-              <motion.button 
-              
-              whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
-              className="bg-primary text-white font-semibold px-5 py-2 rounded-[10px] hover:bg-secondary active:bg-secondary transition w-fit">
-                <a
-                  href={projeto.link}
-                  className="flex items-center gap-2 group "
-                  target="_blank"
+
+              <div>
+                <motion.button
+                  whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
+                  className="bg-primary text-white font-semibold px-5 xl:mt-0 mt-3 py-2 rounded-[10px] hover:bg-secondary active:bg-secondary transition w-fit"
                 >
-                  Conferir
-                </a>
-              </motion.button>
+                  <a
+                    href={projeto.link}
+                    className="flex items-center gap-2 group "
+                    target="_blank"
+                  >
+                    Conferir
+                  </a>
+                </motion.button>
+              </div>
             </div>
           </motion.div>
         ))}

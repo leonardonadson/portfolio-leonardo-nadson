@@ -3,33 +3,33 @@ import Instagram from "../../assets/footer/Instagram.svg";
 import Linkedin from "../../assets/footer/Linkedin.svg";
 import Site from "../../assets/footer/Site.svg";
 
-const footeritens = [
+const footeritens =[
   {
-    id: 1,
-    name: "Apresentação",
-    path: "/apresentacao",
+      id: 1,
+      name: "Apresentação",
+      path: "#apresentacao"
   },
   {
-    id: 2,
-    name: "Projetos",
-    path: "/projetos",
+      id: 2,
+      name: "Projetos",
+      path: "#projetos"
   },
   {
-    id: 3,
-    name: "Trajetória",
-    path: "/tajetoria",
+      id: 3,
+      name: "Trajetória",
+      path: "#trajetoria"
   },
   {
-    id: 4,
-    name: "Skills",
-    path: "/skills",
+      id: 4,
+      name: "Skills",
+      path: "#skills"
   },
   {
-    id: 5,
-    name: "Contatos",
-    path: "/contatos",
-  },
-];
+      id: 5,
+      name: "Contatos",
+      path: "#contatos"
+  }
+]
 
 const footeredes = [
   {
