@@ -55,7 +55,7 @@ const Inicio = () => {
               className="bg-primary text-white font-semibold px-5 py-2 rounded-[20px] hover:bg-secondary active:bg-secondary transition"
             >
               <a
-                href="https://drive.google.com/file/d/1GhodCZwCUCB1-w5Vor_mtS69MOfxn-PU/view?usp=sharing"
+                href="https://drive.google.com/file/d/1rhbXiBcqoxKYf6kCWz4w3GhCto2qfMYX/view?usp=sharing"
                 className="flex items-center gap-2 group"
                 target="_blank"
               >
