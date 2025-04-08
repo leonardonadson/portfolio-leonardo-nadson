@@ -17,7 +17,7 @@ const dadosAcademicos = [
 const dadosProfissionais = [
   {
     empresa: "Centro de Soluções Aplicadas",
-    cargo: ["Desenvolvedor Front-End"],
+    cargo: ["Desenvolvedor Full-Stack"],
     periodo: "2023 - 2024",
   },
   {
