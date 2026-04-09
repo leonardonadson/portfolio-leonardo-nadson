@@ -108,29 +108,40 @@ const Inicio = () => {
         ))}
       </div>
 
-      <div className="container flex flex-col-reverse items-center md:px-18 md:flex-row md:justify-between relative z-10">
-        <div className="flex flex-col mt-8 md:mt-0 md:w-1/2 text-center md:text-left gap-2">
+      <div className="container flex flex-col-reverse items-center px-4 md:px-18 md:flex-row md:justify-between relative z-10 gap-6 md:gap-0">
+        <div className="flex flex-col mt-4 md:mt-0 md:w-1/2 text-center md:text-left gap-2">
           <motion.h1
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 100, duration: 0.5, delay: 0.4, ease: "easeInOut" }}
-            className="text-5xl md:text-6xl font-bold text-white mb-2 max-w-xs mx-auto md:mx-0 leading-tight md:!leading-snug"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-1 leading-tight"
           >
-            Leonardo Nadson
+            Leonardo<br />Nadson
           </motion.h1>
 
-          {/* Subtítulo com efeito de digitação */}
+          {/* Mobile/tablet: prefix em cima, suffix em baixo. Desktop: inline */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 100, duration: 1, delay: 1, ease: "easeInOut" }}
-            className="text-xl md:text-2xl text-gray-300 mb-6 h-8 flex items-center justify-center md:justify-start"
+            className="text-lg md:text-xl text-white/70 mb-4"
           >
-            <span className="text-white/70">{prefix}&nbsp;</span>
-            <span className="text-primary font-semibold">{displayedSuffix}</span>
-            <span className="ml-0.5 inline-block w-[2px] h-[1.2em] bg-primary align-middle animate-pulse" />
+            {/* Mobile e tablet: empilhado */}
+            <div className="flex flex-col items-center md:items-start lg:hidden">
+              <span>{prefix}</span>
+              <span className="flex items-center gap-1 h-7">
+                <span className="text-primary font-semibold">{displayedSuffix}</span>
+                <span className="inline-block w-[2px] h-[1.1em] bg-primary animate-pulse" />
+              </span>
+            </div>
+            {/* Desktop: inline */}
+            <div className="hidden lg:flex items-center gap-1">
+              <span>{prefix}&nbsp;</span>
+              <span className="text-primary font-semibold">{displayedSuffix}</span>
+              <span className="inline-block w-[2px] h-[1.1em] bg-primary animate-pulse" />
+            </div>
           </motion.div>
 
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
@@ -193,7 +204,7 @@ const Inicio = () => {
           </div>
         </div>
 
-        <div className="flex justify-center md:justify-end md:w-full md:p-8">
+        <div className="flex justify-center md:justify-end md:w-1/2">
           <motion.img
             variants={{
               initial: { opacity: 0, y: 50 },
@@ -210,7 +221,7 @@ const Inicio = () => {
             viewport={{ once: true }}
             src={avatar}
             alt="Avatar Leonardo Nadson"
-            className="w-[90%] md:w-[75%] md:max-w-[550px] min-h-[219px]"
+            className="w-[75%] md:w-full md:max-w-[420px]"
           />
         </div>
       </div>
