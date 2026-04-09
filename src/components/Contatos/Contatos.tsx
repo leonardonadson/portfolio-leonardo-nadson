@@ -44,7 +44,7 @@ const Contatos = () => {
   return (
     <section className="bg-dark2 scroll-mt-20" id="contatos">
       <div className="bg-[rgba(104,9,189,0.1)]">
-        <div className="container md:px-18 py-16">
+        <div className="container px-4 md:px-18 py-16">
           {/* Título da Seção */}
           <div className="flex flex-col items-center justify-center text-center gap-2.5 w-full mb-12">
             <motion.h2
@@ -67,10 +67,16 @@ const Contatos = () => {
             </motion.h1>
           </div>
 
-          <div className="w-full flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-8">
+          {/*
+            Layout responsivo com grid:
+            - Mobile: 1 coluna (avatar+redes em cima, form abaixo)
+            - Tablet (sm–lg): avatar e redes lado a lado em cima, form abaixo (full width)
+            - Desktop (lg+): 2 colunas (esquerda: avatar+redes, direita: form)
+          */}
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 lg:items-start">
 
-            {/* Esquerda: Avatar e Redes */}
-            <div className="w-full lg:w-[45%] flex flex-col items-center lg:items-start gap-8">
+            {/* Avatar + Redes */}
+            <div className="flex flex-col sm:flex-row lg:flex-col items-center sm:items-center lg:items-start gap-8">
               <motion.img
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -78,7 +84,7 @@ const Contatos = () => {
                 transition={{ type: "spring", stiffness: 100, duration: 0.5 }}
                 src={Avatar}
                 alt="Avatar"
-                className="w-[200px] md:w-[300px]"
+                className="w-[180px] sm:w-[220px] lg:w-[300px] shrink-0"
               />
               <div className="flex flex-col gap-4">
                 {redes.map((rede, index) => {
@@ -112,13 +118,13 @@ const Contatos = () => {
               </div>
             </div>
 
-            {/* Direita: Formulário de Contato */}
+            {/* Formulário */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ type: "spring", stiffness: 100, duration: 0.7 }}
-              className="w-full lg:w-[50%] glass-card p-8 md:p-10"
+              className="w-full glass-card p-8 lg:p-10"
             >
               <h3 className="text-2xl font-bold text-white mb-6">{t("contato.form_title", "Mande uma mensagem")}</h3>
 
@@ -131,53 +137,33 @@ const Contatos = () => {
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div className="flex flex-col gap-2">
                     <label htmlFor="name" className="text-white/80 font-semibold text-sm">{t("contato.label_name", "Seu Nome")}</label>
-                    <input
-                      id="name"
-                      type="text"
-                      name="name"
-                      required
+                    <input id="name" type="text" name="name" required
                       className="bg-dark2/50 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-                      placeholder={t("contato.placeholder_name", "Como posso te chamar?")}
-                    />
+                      placeholder={t("contato.placeholder_name", "Como posso te chamar?")} />
                   </div>
-
                   <div className="flex flex-col gap-2">
                     <label htmlFor="email" className="text-white/80 font-semibold text-sm">{t("contato.label_email", "E-mail")}</label>
-                    <input
-                      id="email"
-                      type="email"
-                      name="email"
-                      required
+                    <input id="email" type="email" name="email" required
                       className="bg-dark2/50 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-                      placeholder={t("contato.placeholder_email", "seu.melhor@email.com")}
-                    />
+                      placeholder={t("contato.placeholder_email", "seu.melhor@email.com")} />
                     <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-sm mt-1" />
                   </div>
-
                   <div className="flex flex-col gap-2">
                     <label htmlFor="message" className="text-white/80 font-semibold text-sm">{t("contato.label_message", "Mensagem")}</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={4}
+                    <textarea id="message" name="message" required rows={4}
                       className="bg-dark2/50 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
-                      placeholder={t("contato.placeholder_message", "Diga o que você achou, ou deixe uma proposta...")}
-                    />
+                      placeholder={t("contato.placeholder_message", "Diga o que você achou, ou deixe uma proposta...")} />
                     <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-sm mt-1" />
                   </div>
-
-                  <button
-                    type="submit"
-                    disabled={state.submitting}
-                    className="primary-btn mt-2 w-full text-center py-3 text-lg relative overflow-hidden"
-                  >
+                  <button type="submit" disabled={state.submitting}
+                    className="primary-btn mt-2 w-full text-center py-3 text-lg relative overflow-hidden">
                     {state.submitting ? t("contato.btn_submitting", "Enviando...") : t("contato.btn_submit", "Enviar Mensagem")}
                   </button>
                   <p className="text-white/40 text-xs text-center mt-2">{t("contato.spam_protection", "Protegido automaticamente contra Spam.")}</p>
                 </form>
               )}
             </motion.div>
+
           </div>
         </div>
       </div>
