@@ -46,9 +46,9 @@ const Sobre = () => {
 
         </div>
 
-        <div className="container flex flex-col md:flex-row gap-16 px-6 md:px-18">
+        <div className="container flex flex-col md:flex-row gap-8 lg:gap-16 px-6 md:px-18 items-center">
 
-          <div className="flex flex-col items-center md:items-start !justify-center md:w-1/2 ">
+          <div className="flex flex-col items-center md:items-start justify-center md:w-2/5">
             <motion.img
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -60,10 +60,10 @@ const Sobre = () => {
               delay: 1,
               ease: "easeInOut",
             }}
-            src={foto_pessoal} alt="Foto Pessoal" className="w-full"/>
+            src={foto_pessoal} alt="Foto Pessoal" className="w-full max-w-[320px] md:max-w-full"/>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -74,8 +74,8 @@ const Sobre = () => {
               delay: 1.3,
               ease: "easeInOut",
             }}
-          className="flex flex-col m-auto gap-8 md:w-1/2">
-            <p className="text-white font-inter text-xl leading-relaxed md:!leading-loose mt-0 md:mt-30">
+          className="flex flex-col m-auto gap-6 md:w-3/5">
+            <p className="text-white font-inter text-base md:text-lg leading-relaxed mt-0">
               {t("sobre.description", "Sou Leonardo Nadson, desenvolvedor full-stack focado em criar interfaces funcionais e bem estruturadas. Gosto de transformar ideias em código e buscar soluções que façam a diferença. Sempre estou explorando novas tecnologias e aprimorando minhas habilidades para entregar projetos de qualidade.")}
             </p>
             <div className="flex gap-3">
