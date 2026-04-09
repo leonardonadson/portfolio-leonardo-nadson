@@ -1,57 +1,146 @@
 import { motion } from "motion/react";
+import { useState, useEffect } from "react";
 import avatar from "../../assets/inicio/bemvindo_avatar.png";
-import WhatsApp from "../../assets/contatos/WhatsApp.svg";
-import Download from "../../assets/inicio/Download.svg";
+import { useTranslation } from "react-i18next";
+import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { Download } from "lucide-react";
+
+const particles = Array.from({ length: 20 }, (_, i) => ({
+  id: i,
+  size: Math.random() * 4 + 2,
+  left: Math.random() * 100,
+  delay: Math.random() * 8,
+  duration: Math.random() * 6 + 8,
+}));
+
+// O prefixo fica estático; só o sufixo é digitado/apagado
+const PREFIX_PT = "Desenvolvedor Pleno";
+const SUFFIXES_PT = ["Full Stack", "Mobile"];
+
+const PREFIX_EN = "Mid-Level Developer";
+const SUFFIXES_EN = ["Full Stack", "Mobile"];
+
+const TYPING_SPEED = 70;
+const ERASING_SPEED = 40;
+const PAUSE_AFTER_TYPE = 2200;
+const PAUSE_AFTER_ERASE = 350;
+
+type Phase = "typing" | "erasing" | "waiting";
+
+function useTypewriter(suffixes: string[]) {
+  const [suffix, setSuffix] = useState("");
+  const [phase, setPhase] = useState<Phase>("typing");
+  const [idx, setIdx] = useState(0);
+  const [char, setChar] = useState(0);
+
+  useEffect(() => {
+    const current = suffixes[idx];
+
+    if (phase === "typing") {
+      if (char < current.length) {
+        const t = setTimeout(() => {
+          setSuffix(current.slice(0, char + 1));
+          setChar((c) => c + 1);
+        }, TYPING_SPEED);
+        return () => clearTimeout(t);
+      } else {
+        const t = setTimeout(() => setPhase("erasing"), PAUSE_AFTER_TYPE);
+        return () => clearTimeout(t);
+      }
+    }
+
+    if (phase === "erasing") {
+      if (char > 0) {
+        const t = setTimeout(() => {
+          setSuffix(current.slice(0, char - 1));
+          setChar((c) => c - 1);
+        }, ERASING_SPEED);
+        return () => clearTimeout(t);
+      } else {
+        setPhase("waiting");
+      }
+    }
+
+    if (phase === "waiting") {
+      const t = setTimeout(() => {
+        setIdx((i) => (i + 1) % suffixes.length);
+        setPhase("typing");
+      }, PAUSE_AFTER_ERASE);
+      return () => clearTimeout(t);
+    }
+  }, [char, phase, idx, suffixes]);
+
+  // Reset ao trocar idioma
+  useEffect(() => {
+    setSuffix("");
+    setChar(0);
+    setPhase("typing");
+    setIdx(0);
+  }, [suffixes]);
+
+  return suffix;
+}
 
 const Inicio = () => {
+  const { t, i18n } = useTranslation();
+  const isEN = i18n.language === "en";
+  const prefix = isEN ? PREFIX_EN : PREFIX_PT;
+  const suffixes = isEN ? SUFFIXES_EN : SUFFIXES_PT;
+  const displayedSuffix = useTypewriter(suffixes);
+
   return (
-    <section className="bg-dark2 pt-4 pb-8 font-raleway">
-      <div className="container flex flex-col-reverse items-center md:px-18  md:flex-row md:justify-between">
+    <section className="bg-dark2 pt-4 pb-8 font-raleway relative overflow-hidden">
+      {/* Fundo animado: partículas */}
+      <div className="absolute inset-0 pointer-events-none">
+        {particles.map((p) => (
+          <span
+            key={p.id}
+            className="absolute rounded-full bg-primary/20 animate-float"
+            style={{
+              width: p.size,
+              height: p.size,
+              left: `${p.left}%`,
+              bottom: "-10px",
+              animationDelay: `${p.delay}s`,
+              animationDuration: `${p.duration}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container flex flex-col-reverse items-center md:px-18 md:flex-row md:justify-between relative z-10">
         <div className="flex flex-col mt-8 md:mt-0 md:w-1/2 text-center md:text-left gap-2">
           <motion.h1
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              duration: 0.5,
-              delay: 0.4,
-              ease: "easeInOut",
-            }}
+            transition={{ type: "spring", stiffness: 100, duration: 0.5, delay: 0.4, ease: "easeInOut" }}
             className="text-5xl md:text-6xl font-bold text-white mb-2 max-w-xs mx-auto md:mx-0 leading-tight md:!leading-snug"
           >
             Leonardo Nadson
           </motion.h1>
-          <motion.h2
+
+          {/* Subtítulo com efeito de digitação */}
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              duration: 1,
-              delay: 1,
-              ease: "easeInOut",
-            }}
-            className="text-xl md:text-2xl text-gray-300 mb-6"
+            transition={{ type: "spring", stiffness: 100, duration: 1, delay: 1, ease: "easeInOut" }}
+            className="text-xl md:text-2xl text-gray-300 mb-6 h-8 flex items-center justify-center md:justify-start"
           >
-            Desenvolvedor Júnior - Full Stack
-          </motion.h2>
+            <span className="text-white/70">{prefix}&nbsp;</span>
+            <span className="text-primary font-semibold">{displayedSuffix}</span>
+            <span className="ml-0.5 inline-block w-[2px] h-[1.2em] bg-primary align-middle animate-pulse" />
+          </motion.div>
 
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+            {/* Currículo */}
             <motion.button
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               viewport={{ once: true }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                duration: 1,
-                delay: 1,
-                ease: "easeInOut",
-              }}
+              transition={{ type: "spring", stiffness: 100, duration: 1, delay: 1, ease: "easeInOut" }}
               className="bg-primary text-white font-semibold px-5 py-2 rounded-[20px] hover:bg-secondary active:bg-secondary transition"
             >
               <a
@@ -59,23 +148,18 @@ const Inicio = () => {
                 className="flex items-center gap-2 group"
                 target="_blank"
               >
-                <img src={Download} alt="Download Icone" />
-                Curriculo
+                <Download size={18} />
+                {t("inicio.curriculo", "Currículo")}
               </a>
             </motion.button>
 
+            {/* WhatsApp */}
             <motion.button
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               viewport={{ once: true }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                duration: 1,
-                delay: 1.3,
-                ease: "easeInOut",
-              }}
+              transition={{ type: "spring", stiffness: 100, duration: 1, delay: 1.3, ease: "easeInOut" }}
               className="bg-dark text-white border border-primary font-semibold px-5 py-2 rounded-[20px] hover:bg-primary active:bg-secondary transition"
             >
               <a
@@ -83,12 +167,27 @@ const Inicio = () => {
                 className="flex items-center gap-2 group"
                 target="_blank"
               >
-                <img
-                  className="w-[18.5px] h-[18.5px]"
-                  src={WhatsApp}
-                  alt="WhatsApp Icone"
-                />
-                Vamos conversar?
+                <FaWhatsapp size={18} />
+                {t("inicio.conversar", "Vamos conversar?")}
+              </a>
+            </motion.button>
+
+            {/* LinkedIn */}
+            <motion.button
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 100, duration: 1, delay: 1.6, ease: "easeInOut" }}
+              className="bg-dark text-white border border-primary font-semibold px-5 py-2 rounded-[20px] hover:bg-primary active:bg-secondary transition"
+            >
+              <a
+                href="https://www.linkedin.com/in/leonardonadson/"
+                className="flex items-center gap-2 group"
+                target="_blank"
+              >
+                <FaLinkedinIn size={16} />
+                {t("inicio.linkedin", "LinkedIn")}
               </a>
             </motion.button>
           </div>
@@ -97,20 +196,11 @@ const Inicio = () => {
         <div className="flex justify-center md:justify-end md:w-full md:p-8">
           <motion.img
             variants={{
-              initial: {
-                opacity: 0,
-                y: 50,
-              },
+              initial: { opacity: 0, y: 50 },
               animate: {
                 opacity: 1,
                 y: 0,
-                transition: {
-                  type: "spring",
-                  stiffness: 100,
-                  duration: 0.5,
-                  delay: 0.4,
-                  ease: "easeInOut",
-                },
+                transition: { type: "spring", stiffness: 100, duration: 0.5, delay: 0.4, ease: "easeInOut" },
               },
             }}
             initial="initial"

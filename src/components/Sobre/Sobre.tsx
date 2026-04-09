@@ -1,11 +1,13 @@
 import foto_pessoal from "../../assets/sobre/foto_pessoal.png";
-import github from "../../assets/sobre/github.svg";
-import linkedin from "../../assets/sobre/linkedin.svg";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Sobre = () => {
+  const { t } = useTranslation();
+
   return (
-    <section className="bg-dark2">
+    <section className="bg-dark2 scroll-mt-20" id="apresentacao">
       <div className="bg-[rgba(104,9,189,0.1)] py-12 gap-0">
         {/* Título da Seção */}
 
@@ -24,7 +26,7 @@ const Sobre = () => {
                           ease: "easeInOut",
                         }}
             className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold">
-              Sobre
+              {t("sobre.badge", "Sobre")}
             </motion.h2>
             <motion.h1 
                         initial={{ opacity: 0, x: -50 }}
@@ -37,8 +39,8 @@ const Sobre = () => {
                           delay: 0.6,
                           ease: "easeInOut",
                         }}
-            className="text-white font-releway font-semibold text-4xl" id="apresentacao">
-              Quem sou
+            className="text-white font-releway font-semibold text-4xl">
+              {t("sobre.title", "Quem sou")}
             </motion.h1>
           </div>
 
@@ -74,18 +76,22 @@ const Sobre = () => {
             }}
           className="flex flex-col m-auto gap-8 md:w-1/2">
             <p className="text-white font-inter text-xl leading-relaxed md:!leading-loose mt-0 md:mt-30">
-              Sou Leonardo Nadson, desenvolvedor full-stack focado em criar
-              interfaces funcionais e bem estruturadas. Gosto de transformar
-              ideias em código e buscar soluções que façam a diferença. Sempre
-              estou explorando novas tecnologias e aprimorando minhas
-              habilidades para entregar projetos de qualidade.
+              {t("sobre.description", "Sou Leonardo Nadson, desenvolvedor full-stack focado em criar interfaces funcionais e bem estruturadas. Gosto de transformar ideias em código e buscar soluções que façam a diferença. Sempre estou explorando novas tecnologias e aprimorando minhas habilidades para entregar projetos de qualidade.")}
             </p>
-            <div className="flex gap-4">
-              <a href="https://www.linkedin.com/in/leonardonadson/" className="" target="_blank">
-                <img className="w-15 h-15" src={linkedin} alt="Linkedin" />
+            <div className="flex gap-3">
+              <a
+                href="https://www.linkedin.com/in/leonardonadson/"
+                target="_blank"
+                className="w-[48px] h-[48px] flex items-center justify-center rounded-xl bg-[rgba(104,9,189,0.15)] border border-[rgba(104,9,189,0.3)] text-primary hover:bg-primary hover:text-white hover:border-primary hover:scale-110 transition-all duration-200"
+              >
+                <FaLinkedinIn size={22} />
               </a>
-              <a href="https://github.com/leonardonadson" className="" target="_blank">
-                <img className="w-15 h-15" src={github} alt="Github"/>
+              <a
+                href="https://github.com/leonardonadson"
+                target="_blank"
+                className="w-[48px] h-[48px] flex items-center justify-center rounded-xl bg-[rgba(104,9,189,0.15)] border border-[rgba(104,9,189,0.3)] text-primary hover:bg-primary hover:text-white hover:border-primary hover:scale-110 transition-all duration-200"
+              >
+                <FaGithub size={22} />
               </a>
             </div>
           </motion.div>

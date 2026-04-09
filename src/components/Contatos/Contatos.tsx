@@ -1,140 +1,182 @@
 import Avatar from "../../assets/contatos/conexoes_avatar.png";
-import Linkedin from "../../assets/contatos/Linkedin.svg";
-import GitHub from "../../assets/hard_skills/Github.svg";
-import Email from "../../assets/contatos/Mail.svg";
-import WhatsApp from "../../assets/contatos/WhatsApp.svg";
 
 import { motion } from "motion/react";
+import { useForm, ValidationError } from '@formspree/react';
+import { useTranslation } from "react-i18next";
+import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
 
 const redes = [
   {
     id: 1,
     name: "Linkedin",
     usuario: "@leonardonadson",
-    img: Linkedin,
+    icon: FaLinkedinIn,
     link: "https://www.linkedin.com/in/leonardonadson/",
   },
   {
     id: 2,
     name: "GitHub",
     usuario: "@leonardonadson",
-    img: GitHub,
+    icon: FaGithub,
     link: "https://github.com/leonardonadson",
   },
   {
     id: 3,
     name: "E-mail",
     usuario: "leonardo.nom@outlook.com",
-    img: Email,
+    icon: MdOutlineEmail,
     link: "mailto:leonardo.nom@outlook.com",
   },
   {
     id: 4,
     name: "WhatsApp",
     usuario: "(84) 98834-3084",
-    img: WhatsApp,
+    icon: FaWhatsapp,
     link: "https://wa.me/5584988343084",
   },
 ];
 
 const Contatos = () => {
+  const { t } = useTranslation();
+  const [state, handleSubmit] = useForm("xzdkqerv");
+
   return (
-    <section className="bg-dark2">
+    <section className="bg-dark2 scroll-mt-20" id="contatos">
       <div className="bg-[rgba(104,9,189,0.1)]">
-        <div className="container md:px-18 py-8">
+        <div className="container md:px-18 py-16">
           {/* Título da Seção */}
-          <div className="!flex flex-col items-center !justify-center text-center pt-6 gap-2.5 w-full">
+          <div className="flex flex-col items-center justify-center text-center gap-2.5 w-full mb-12">
             <motion.h2
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                duration: 0.5,
-                delay: 0.4,
-                ease: "easeInOut",
-              }}
+              transition={{ type: "spring", stiffness: 100, duration: 0.5, delay: 0.2 }}
               className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold"
-              id="contatos"
             >
-              Contato
+              {t("contato.badge", "Contato")}
             </motion.h2>
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                duration: 0.7,
-                delay: 0.6,
-                ease: "easeInOut",
-              }}
+              transition={{ type: "spring", stiffness: 100, duration: 0.7, delay: 0.4 }}
               className="text-white font-releway font-semibold text-4xl"
             >
-              Vamos nos conectar!
+              {t("contato.title", "Vamos nos conectar!")}
             </motion.h1>
           </div>
 
-          <div className="w-full flex flex-wrap md:justify-between  items-center align-center m-0">
-            <div className="md:w-[48%] w-full px-6 md:py-0 py-8">
+          <div className="w-full flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-8">
+
+            {/* Esquerda: Avatar e Redes */}
+            <div className="w-full lg:w-[45%] flex flex-col items-center lg:items-start gap-8">
               <motion.img
-                variants={{
-                  initial: {
-                    opacity: 0,
-                    y: 50,
-                  },
-                  animate: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      type: "spring",
-                      stiffness: 100,
-                      duration: 0.5,
-                      delay: 0.4,
-                      ease: "easeInOut",
-                    },
-                  },
-                }}
-                initial="initial"
-                animate={{ scale: 1, transition: { duration: 0.5 } }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
-                whileInView="animate"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
+                transition={{ type: "spring", stiffness: 100, duration: 0.5 }}
                 src={Avatar}
                 alt="Avatar"
-                className="md:max-w-[500px]"
+                className="w-[200px] md:w-[300px]"
               />
+              <div className="flex flex-col gap-4">
+                {redes.map((rede, index) => {
+                  const Icon = rede.icon;
+                  return (
+                    <motion.div
+                      initial={{ opacity: 0, x: -30 }}
+                      viewport={{ once: true }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ type: "spring", stiffness: 100, delay: 0.1 * index }}
+                      key={rede.id}
+                      className="flex gap-4 items-center"
+                    >
+                      <a
+                        href={rede.link}
+                        className="w-[42px] h-[42px] flex items-center justify-center rounded-xl bg-[rgba(104,9,189,0.15)] border border-[rgba(104,9,189,0.3)] text-primary hover:bg-primary hover:text-white hover:border-primary hover:scale-110 transition-all duration-200"
+                        target={rede.link.startsWith("http") ? "_blank" : undefined}
+                      >
+                        <Icon size={20} />
+                      </a>
+                      <a
+                        href={rede.link}
+                        className="font-semibold text-md font-inter text-white hover:text-primary transition-colors"
+                        target={rede.link.startsWith("http") ? "_blank" : undefined}
+                      >
+                        {rede.usuario}
+                      </a>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
-            <motion.div 
-            
-            className="md:w-[48%] flex flex-col justify-center md:justify-start items-start pl-8 align-center text-white gap-6 md:pl-14 md:px-10">
-              {redes.map((rede, index) => (
-                <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              duration: 1,
-              delay: 1 + index * 0.2, 
-              ease: "easeInOut",
-            }}
-                key={rede.id} className="flex gap-4 items-center">
-                  <a href={rede.link}>
-                    <img
-                      src={rede.img}
-                      alt={rede.name}
-                      className="w-[35px] md:w-[50px]"
+
+            {/* Direita: Formulário de Contato */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 100, duration: 0.7 }}
+              className="w-full lg:w-[50%] glass-card p-8 md:p-10"
+            >
+              <h3 className="text-2xl font-bold text-white mb-6">{t("contato.form_title", "Mande uma mensagem")}</h3>
+
+              {state.succeeded ? (
+                <div className="bg-primary/20 text-white border border-primary p-6 rounded-xl text-center">
+                  <p className="font-bold text-xl">{t("contato.success_title", "Obrigado pelo contato!")}</p>
+                  <p className="text-white/80 mt-2">{t("contato.success_desc", "Retornarei o mais breve possível.")}</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="name" className="text-white/80 font-semibold text-sm">{t("contato.label_name", "Seu Nome")}</label>
+                    <input
+                      id="name"
+                      type="text"
+                      name="name"
+                      required
+                      className="bg-dark2/50 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                      placeholder={t("contato.placeholder_name", "Como posso te chamar?")}
                     />
-                  </a>
-                  <p className="font-semibold text-md md:text-xl font-inter px-4">
-                    <a href={rede.link}>{rede.usuario}</a>
-                  </p>
-                </motion.div>
-              ))}
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="email" className="text-white/80 font-semibold text-sm">{t("contato.label_email", "E-mail")}</label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      required
+                      className="bg-dark2/50 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                      placeholder={t("contato.placeholder_email", "seu.melhor@email.com")}
+                    />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-sm mt-1" />
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="message" className="text-white/80 font-semibold text-sm">{t("contato.label_message", "Mensagem")}</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={4}
+                      className="bg-dark2/50 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
+                      placeholder={t("contato.placeholder_message", "Diga o que você achou, ou deixe uma proposta...")}
+                    />
+                    <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-sm mt-1" />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={state.submitting}
+                    className="primary-btn mt-2 w-full text-center py-3 text-lg relative overflow-hidden"
+                  >
+                    {state.submitting ? t("contato.btn_submitting", "Enviando...") : t("contato.btn_submit", "Enviar Mensagem")}
+                  </button>
+                  <p className="text-white/40 text-xs text-center mt-2">{t("contato.spam_protection", "Protegido automaticamente contra Spam.")}</p>
+                </form>
+              )}
             </motion.div>
           </div>
         </div>
