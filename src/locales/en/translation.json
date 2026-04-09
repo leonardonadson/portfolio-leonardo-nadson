@@ -1,0 +1,86 @@
+{
+  "header": {
+    "inicio": "Home",
+    "sobre": "About",
+    "projetos": "Projects",
+    "carreira": "Career",
+    "skills": "Skills",
+    "contato": "Contact"
+  },
+  "inicio": {
+    "subtitle": "Junior Full Stack Developer",
+    "curriculo": "Resume",
+    "conversar": "Let's talk?",
+    "linkedin": "LinkedIn"
+  },
+  "sobre": {
+    "badge": "About",
+    "title": "Who I am",
+    "description": "I'm Leonardo Nadson, a full-stack developer focused on creating functional and well-structured interfaces. I like to transform ideas into code and seek solutions that make a difference. I'm always exploring new technologies and improving my skills to deliver quality projects."
+  },
+  "projetos": {
+    "badge": "Portfolio",
+    "title": "Projects",
+    "title_all": "All Projects",
+    "conferir": "View",
+    "ver_github": "View on GitHub",
+    "ver_todos": "View all projects",
+    "voltar": "Back to home",
+    "count": "projects found",
+    "nenhum": "No projects found.",
+    "cat_todos": "All",
+    "cat_wordpress": "WordPress",
+    "cat_backend": "Backend",
+    "cat_mobile": "Mobile",
+    "cat_desktop": "Desktop",
+    "desc_1": "The Scientific, Technological and Cultural Exhibition of the IFRN Natal Central Campus",
+    "desc_2": "XIV National Conference on Communications, Networks and Information Security",
+    "desc_3": "ProFuturo is a social project aiming to promote the resettlement of 240 families in Rio Grande do Norte",
+    "desc_4": "The Academic Board of IT Management and Technology at the IFRN Natal Central Campus",
+    "desc_5": "ProFuturo BI is a restricted Login system for displaying PowerBI data from the IFRN ProFuturo Project",
+    "desc_6": "Electrical Installations Maintenance Laboratory of the IFRN Natal Central Campus",
+    "desc_7": "The Center for Extension and Professional Practice – Applied Solutions Center of the IFRN Natal Central Campus",
+    "desc_8": "The Academic Board of Industry at the IFRN Natal Central Campus",
+    "desc_9": "The Extension Board of the IFRN Natal Central Campus",
+    "desc_10": "The Center for Extension and Professional Practice in Civil Construction of the IFRN Natal Central Campus",
+    "desc_11": "Medical integration mobile app connecting patients with licensed healthcare professionals developed at IFRN Natal Central Campus",
+    "desc_12": "Web e-commerce with a user experience entirely designed for the geek audience developed at IFRN Natal Central Campus"
+  },
+  "carreira": {
+    "badge": "Career",
+    "title": "My Journey",
+    "academica": "Academic",
+    "profissional": "Professional"
+  },
+  "contato": {
+    "badge": "Contact",
+    "title": "Let's connect!",
+    "form_title": "Send a message",
+    "success_title": "Thanks for reaching out!",
+    "success_desc": "I'll get back to you as soon as possible.",
+    "label_name": "Your Name",
+    "label_email": "E-mail",
+    "label_message": "Message",
+    "placeholder_name": "How should I call you?",
+    "placeholder_email": "your.best@email.com",
+    "placeholder_message": "Tell me what you think, or leave a proposal...",
+    "btn_submit": "Send Message",
+    "btn_submitting": "Sending...",
+    "spam_protection": "Automatically protected against Spam."
+  },
+  "skill": {
+    "badge_hard": "Hard Skills",
+    "title_hard": "Technologies",
+    "badge_soft": "Soft Skills",
+    "title_soft": "Skills",
+    "cat_frontend": "Frontend",
+    "cat_backend": "Backend",
+    "cat_mobile": "Mobile",
+    "cat_tools": "Tools",
+    "soft_proatividade": "Proactivity",
+    "soft_lideranca": "Leadership",
+    "soft_confianca": "Confidence",
+    "soft_aprendizado": "Learning",
+    "soft_responsabilidade": "Responsibility"
+  }
+}

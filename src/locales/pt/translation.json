@@ -1,0 +1,74 @@
+{
+  "header": {
+    "inicio": "Início",
+    "sobre": "Sobre",
+    "projetos": "Projetos",
+    "carreira": "Carreira",
+    "skills": "Ferramentas",
+    "contato": "Contato"
+  },
+  "inicio": {
+    "subtitle": "Desenvolvedor Júnior - Full Stack",
+    "curriculo": "Currículo",
+    "conversar": "Vamos conversar?",
+    "linkedin": "LinkedIn"
+  },
+  "sobre": {
+    "badge": "Sobre",
+    "title": "Quem sou",
+    "description": "Sou Leonardo Nadson, desenvolvedor full-stack focado em criar interfaces funcionais e bem estruturadas. Gosto de transformar ideias em código e buscar soluções que façam a diferença. Sempre estou explorando novas tecnologias e aprimorando minhas habilidades para entregar projetos de qualidade."
+  },
+  "projetos": {
+    "badge": "Portfólio",
+    "title": "Projetos",
+    "title_all": "Todos os Projetos",
+    "conferir": "Conferir",
+    "ver_github": "Ver no GitHub",
+    "ver_todos": "Ver todos os projetos",
+    "voltar": "Voltar para a home",
+    "count": "projetos encontrados",
+    "nenhum": "Nenhum projeto encontrado.",
+    "cat_todos": "Todos",
+    "cat_wordpress": "WordPress",
+    "cat_backend": "Backend",
+    "cat_mobile": "Mobile",
+    "cat_desktop": "Desktop"
+  },
+  "carreira": {
+    "badge": "Carreira",
+    "title": "Conheça minha trajetória",
+    "academica": "Acadêmica",
+    "profissional": "Profissional"
+  },
+  "contato": {
+    "badge": "Contato",
+    "title": "Vamos nos conectar!",
+    "form_title": "Mande uma mensagem",
+    "success_title": "Obrigado pelo contato!",
+    "success_desc": "Retornarei o mais breve possível.",
+    "label_name": "Seu Nome",
+    "label_email": "E-mail",
+    "label_message": "Mensagem",
+    "placeholder_name": "Como posso te chamar?",
+    "placeholder_email": "seu.melhor@email.com",
+    "placeholder_message": "Diga o que você achou, ou deixe uma proposta...",
+    "btn_submit": "Enviar Mensagem",
+    "btn_submitting": "Enviando...",
+    "spam_protection": "Protegido automaticamente contra Spam."
+  },
+  "skill": {
+    "badge_hard": "Hard Skills",
+    "title_hard": "Tecnologias",
+    "badge_soft": "Soft Skills",
+    "title_soft": "Habilidades",
+    "cat_frontend": "Frontend",
+    "cat_backend": "Backend",
+    "cat_mobile": "Mobile",
+    "cat_tools": "Ferramentas",
+    "soft_proatividade": "Proatividade",
+    "soft_lideranca": "Liderança",
+    "soft_confianca": "Confiança",
+    "soft_aprendizado": "Aprendizado",
+    "soft_responsabilidade": "Responsabilidade"
+  }
+}
