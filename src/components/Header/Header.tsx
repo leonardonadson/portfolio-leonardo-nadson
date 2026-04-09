@@ -8,12 +8,17 @@ const Header = () => {
   const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   const headeritens = [
-    { id: 1, name: t("header.inicio", "Início"), path: "#apresentacao" },
-    { id: 2, name: t("header.projetos", "Projetos"), path: "#projetos" },
-    { id: 3, name: t("header.carreira", "Trajetória"), path: "#trajetoria" },
-    { id: 4, name: t("header.skills", "Skills"), path: "#skills" },
-    { id: 5, name: t("header.contato", "Contatos"), path: "#contatos" }
+    { id: 1, name: t("header.inicio", "Início"), sectionId: "apresentacao" },
+    { id: 2, name: t("header.projetos", "Projetos"), sectionId: "projetos" },
+    { id: 3, name: t("header.carreira", "Trajetória"), sectionId: "trajetoria" },
+    { id: 4, name: t("header.skills", "Skills"), sectionId: "skills" },
+    { id: 5, name: t("header.contato", "Contatos"), sectionId: "contatos" }
   ];
 
   const toggleLanguage = () => {
@@ -30,17 +35,17 @@ const Header = () => {
           </a>
         </div>
 
-        {/* Navegação Desktop */}
-        <nav className="hidden sm:flex text-[15px] text-white items-center gap-8">
-          <ul className="flex gap-8">
+        {/* Navegação Desktop (lg+) */}
+        <nav className="hidden lg:flex text-[15px] text-white items-center gap-6">
+          <ul className="flex gap-6">
             {headeritens.map((item) => (
               <li key={item.id}>
-                <a
-                  className="hover:underline hover:underline-offset-4 hover:decoration-primary hover:decoration-2 transition-all"
-                  href={item.path}
+                <button
+                  className="hover:underline hover:underline-offset-4 hover:decoration-primary hover:decoration-2 transition-all cursor-pointer"
+                  onClick={() => scrollTo(item.sectionId)}
                 >
                   {item.name}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
@@ -54,8 +59,8 @@ const Header = () => {
           </button>
         </nav>
 
-        {/* Botão de alternância Mobile */}
-        <div className="sm:hidden flex items-center gap-4 pr-6">
+        {/* Botão hamburger — mobile e tablet */}
+        <div className="lg:hidden flex items-center gap-4 pr-6">
             <button 
                 onClick={toggleLanguage} 
                 className="flex items-center gap-2 cursor-pointer text-white hover:bg-white/10 transition-colors bg-[rgba(255,255,255,0.05)] border border-white/10 px-3 py-1.5 rounded-full"
@@ -81,7 +86,7 @@ const Header = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 sm:hidden cursor-pointer"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 lg:hidden cursor-pointer"
           />
         )}
       </AnimatePresence>
@@ -94,7 +99,7 @@ const Header = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            className="fixed top-0 right-0 h-full w-72 bg-[#0D0917] border-l border-white/10 shadow-2xl sm:hidden flex flex-col items-center pt-8 px-6 gap-8 z-[60] overflow-y-auto"
+            className="fixed top-0 right-0 h-full w-72 bg-[#0D0917] border-l border-white/10 shadow-2xl lg:hidden flex flex-col items-center pt-8 px-6 gap-8 z-[60] overflow-y-auto"
           >
             <div className="w-full flex justify-end pr-4">
               <button 
@@ -107,17 +112,16 @@ const Header = () => {
             
             <div className="flex flex-col gap-6 w-full mt-4">
               {headeritens.map((item, index) => (
-                <motion.a
+                <motion.button
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + (index * 0.1) }}
                   key={item.id}
-                  href={item.path}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-white text-xl font-medium hover:text-primary transition-colors border-b border-[rgba(255,255,255,0.05)] pb-4 text-center"
+                  onClick={() => { scrollTo(item.sectionId); setIsMobileMenuOpen(false); }}
+                  className="text-white text-xl font-medium hover:text-primary transition-colors border-b border-[rgba(255,255,255,0.05)] pb-4 text-center w-full cursor-pointer"
                 >
                   {item.name}
-                </motion.a>
+                </motion.button>
               ))}
             </div>
 
