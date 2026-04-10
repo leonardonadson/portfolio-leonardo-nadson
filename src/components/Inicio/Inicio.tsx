@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
-import { useHoverAnimation } from "../../hooks/useHoverAnimation";
 import avatar from "../../assets/inicio/bemvindo_avatar.png";
 import { useTranslation } from "react-i18next";
 import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
@@ -88,7 +87,6 @@ const Inicio = () => {
   const prefix = isEN ? PREFIX_EN : PREFIX_PT;
   const suffixes = isEN ? SUFFIXES_EN : SUFFIXES_PT;
   const displayedSuffix = useTypewriter(suffixes);
-  const supportsHover = useHoverAnimation();
 
   return (
     <section className="bg-dark2 pt-4 pb-8 font-raleway relative overflow-hidden">
@@ -151,7 +149,7 @@ const Inicio = () => {
             <motion.button
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={supportsHover ? { scale: 1.05, transition: { duration: 0.2 } } : undefined}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               viewport={{ once: true }}
               transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1, delay: 1, ease: "easeInOut" }}
               className="bg-primary text-white font-semibold px-5 py-2 rounded-[20px] hover:bg-secondary active:bg-secondary transition-colors duration-200"
@@ -170,7 +168,7 @@ const Inicio = () => {
             <motion.button
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={supportsHover ? { scale: 1.05, transition: { duration: 0.2 } } : undefined}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               viewport={{ once: true }}
               transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1, delay: 1.3, ease: "easeInOut" }}
               className="bg-dark text-white border border-primary font-semibold px-5 py-2 rounded-[20px] hover:bg-primary active:bg-secondary transition-colors duration-200"
@@ -189,7 +187,7 @@ const Inicio = () => {
             <motion.button
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={supportsHover ? { scale: 1.05, transition: { duration: 0.2 } } : undefined}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               viewport={{ once: true }}
               transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1, delay: 1.6, ease: "easeInOut" }}
               className="bg-dark text-white border border-primary font-semibold px-5 py-2 rounded-[20px] hover:bg-primary active:bg-secondary transition-colors duration-200"
@@ -218,7 +216,7 @@ const Inicio = () => {
             }}
             initial="initial"
             animate={{ scale: 1, transition: { duration: 0.5 } }}
-            whileHover={supportsHover ? { scale: 1.05, transition: { duration: 0.5 } } : undefined}
+            whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
             whileInView="animate"
             viewport={{ once: true }}
             src={avatar}

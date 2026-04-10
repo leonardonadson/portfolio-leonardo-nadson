@@ -13,7 +13,6 @@ import CSA from "../../assets/projetos/CSA.png";
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
-import { useHoverAnimation } from "../../hooks/useHoverAnimation";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import {
@@ -207,7 +206,6 @@ interface ProjetoCardProps {
 
 export const ProjetoCard = ({ projeto, index, t }: ProjetoCardProps) => {
   const isGithub = projeto.tags.includes("GitHub");
-  const supportsHover = useHoverAnimation();
   return (
     <motion.div
       layout
@@ -215,7 +213,7 @@ export const ProjetoCard = ({ projeto, index, t }: ProjetoCardProps) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.05 * index }}
-      whileHover={supportsHover ? { y: -5, transition: { duration: 0.2 } } : undefined}
+      whileHover={{ y: -5, transition: { duration: 0.2 } }}
       className="project-card flex flex-col"
     >
       {/* Imagem */}
@@ -242,7 +240,7 @@ export const ProjetoCard = ({ projeto, index, t }: ProjetoCardProps) => {
         </p>
 
         <motion.a
-          whileHover={supportsHover ? { scale: 1.03, transition: { duration: 0.15 } } : undefined}
+          whileHover={{ scale: 1.03, transition: { duration: 0.15 } }}
           href={projeto.link}
           target="_blank"
           className="flex items-center gap-2 w-fit mt-1 bg-primary text-white font-semibold px-4 py-2 rounded-[10px] hover:bg-secondary transition-colors duration-200 text-sm"
@@ -262,7 +260,6 @@ const Projetos = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [filtro, setFiltro] = useState("Todos");
-  const supportsHover = useHoverAnimation();
 
   const projetosFiltrados = filtro === "Todos"
     ? listaProjetos.slice(0, HOME_LIMIT)
@@ -325,7 +322,7 @@ const Projetos = () => {
         {/* Ver todos */}
         <div className="flex justify-center mt-10">
           <motion.button
-            whileHover={supportsHover ? { scale: 1.04, transition: { duration: 0.2 } } : undefined}
+            whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
             onClick={() => navigate("/projetos")}
             className="flex items-center gap-2 primary-btn text-base"
           >
