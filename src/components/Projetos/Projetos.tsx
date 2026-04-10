@@ -60,7 +60,7 @@ export const listaProjetos: Projeto[] = [
     categoria: "Frontend",
     imagem: PROFUTURO,
     descricao: "O ProFuturo é um projeto social com o objetivo de promover o reassentamento de 240 famílias do Rio Grande do Norte",
-    link: "https://profuturoifrn.edu.br",
+    link: "https://profuturo.ifrn.edu.br",
   },
   {
     id: 4,
