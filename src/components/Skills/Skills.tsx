@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
+import { useHoverAnimation } from "../../hooks/useHoverAnimation";
 import {
   SiReact,
   SiHtml5,
@@ -76,26 +77,29 @@ interface SkillChipProps {
   index: number;
 }
 
-const SkillChip = ({ name, icon: Icon, color, index }: SkillChipProps) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ type: "spring", stiffness: 100, delay: 0.05 * index }}
-    whileHover={{ scale: 1.05, transition: { duration: 0.15 } }}
-    className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-[rgba(104,9,189,0.08)] border border-[rgba(104,9,189,0.25)] hover:border-[rgba(104,9,189,0.5)] hover:bg-[rgba(104,9,189,0.18)] hover:shadow-[0_4px_20px_rgba(104,9,189,0.2)] transition-all duration-200 cursor-default"
-  >
-    <Icon size={22} color={color} />
-    <span className="text-sm font-semibold text-white/90">{name}</span>
-  </motion.div>
-);
+const SkillChip = ({ name, icon: Icon, color, index }: SkillChipProps) => {
+  const supportsHover = useHoverAnimation();
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.05 * index }}
+      whileHover={supportsHover ? { scale: 1.05, transition: { duration: 0.15 } } : undefined}
+      className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-[rgba(104,9,189,0.08)] border border-[rgba(104,9,189,0.25)] hover:border-[rgba(104,9,189,0.5)] hover:bg-[rgba(104,9,189,0.18)] hover:shadow-[0_4px_20px_rgba(104,9,189,0.2)] transition-[background-color,border-color,box-shadow] duration-200 cursor-default"
+    >
+      <Icon size={22} color={color} />
+      <span className="text-sm font-semibold text-white/90">{name}</span>
+    </motion.div>
+  );
+};
 
 const CategoryTitle = ({ label, delay }: { label: string; delay: number }) => (
   <motion.h3
     initial={{ opacity: 0, x: -20 }}
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true }}
-    transition={{ type: "spring", stiffness: 100, delay }}
+    transition={{ type: "spring", stiffness: 100, damping: 20, delay }}
     className="text-primary font-semibold text-sm uppercase tracking-widest mb-4 mt-8 first:mt-0 text-center w-full"
   >
     {label}
@@ -104,6 +108,7 @@ const CategoryTitle = ({ label, delay }: { label: string; delay: number }) => (
 
 const Skills = () => {
   const { t } = useTranslation();
+  const supportsHover = useHoverAnimation();
 
   return (
     <section className="bg-dark2 text-white py-16 scroll-mt-20" id="skills">
@@ -114,7 +119,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
             className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold"
           >
             {t("skill.badge_hard", "Hard Skills")}
@@ -123,7 +128,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 100, delay: 0.35 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.35 }}
             className="text-white font-releway font-semibold text-4xl"
           >
             {t("skill.title_hard", "Tecnologias")}
@@ -171,7 +176,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
             className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold"
           >
             {t("skill.badge_soft", "Soft Skills")}
@@ -180,7 +185,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 100, delay: 0.35 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.35 }}
             className="text-white font-releway font-semibold text-4xl"
           >
             {t("skill.title_soft", "Habilidades")}
@@ -196,9 +201,9 @@ const Skills = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 100, delay: 0.08 * i }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.15 } }}
-                className="flex items-center gap-2 bg-[rgba(104,9,189,0.1)] px-6 py-4 rounded-[20px] border border-[rgba(104,9,189,0.3)] hover:bg-[rgba(104,9,189,0.25)] hover:border-primary/60 transition-all duration-200 cursor-default"
+                transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.08 * i }}
+                whileHover={supportsHover ? { scale: 1.05, transition: { duration: 0.15 } } : undefined}
+                className="flex items-center gap-2 bg-[rgba(104,9,189,0.1)] px-6 py-4 rounded-[20px] border border-[rgba(104,9,189,0.3)] hover:bg-[rgba(104,9,189,0.25)] hover:border-primary/60 transition-[background-color,border-color] duration-200 cursor-default"
               >
                 <Icon size={18} className="text-primary" />
                 <p className="font-semibold text-base">{t(skill.key, skill.fallback)}</p>

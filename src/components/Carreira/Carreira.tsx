@@ -116,7 +116,7 @@ const SnakeTimeline = ({ items, icon: Icon, color, baseDelay = 0 }: SnakeTimelin
                   viewport={{ once: true }}
                   transition={{
                     type: "spring",
-                    stiffness: 100,
+                    stiffness: 100, damping: 20,
                     delay: baseDelay + 0.1 * i + 0.15 * rowIdx,
                   }}
                   className="flex flex-col items-center gap-3 relative z-10"
@@ -166,7 +166,7 @@ const Carreira = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
               className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold"
             >
               {t("carreira.badge", "Carreira")}
@@ -175,7 +175,7 @@ const Carreira = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 100, delay: 0.4 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}
               className="text-white font-releway font-semibold text-4xl"
             >
               {t("carreira.title", "Conheça minha trajetória")}
@@ -213,7 +213,7 @@ const Carreira = () => {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 100, delay: 0.1 * i }}
+                    transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 * i }}
                     className="relative glass-card p-4"
                   >
                     <span className="absolute -left-[27px] top-4 w-4 h-4 bg-dark2 border-2 border-primary rounded-full ring-4 ring-dark2" />
@@ -257,7 +257,7 @@ const Carreira = () => {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 100, delay: 0.1 * i }}
+                    transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 * i }}
                     className="relative glass-card p-4"
                   >
                     <span className="absolute -left-[27px] top-4 w-4 h-4 bg-primary rounded-full ring-4 ring-dark2 shadow-[0_0_8px_#6809BD]" />

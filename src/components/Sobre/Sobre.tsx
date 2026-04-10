@@ -20,7 +20,7 @@ const Sobre = () => {
                         viewport={{ once: true }}
                         transition={{
                           type: "spring",
-                          stiffness: 100,
+                          stiffness: 100, damping: 20,
                           duration: 0.5,
                           delay: 0.4,
                           ease: "easeInOut",
@@ -34,7 +34,7 @@ const Sobre = () => {
                         viewport={{ once: true }}
                         transition={{
                           type: "spring",
-                          stiffness: 100,
+                          stiffness: 100, damping: 20,
                           duration: 0.7,
                           delay: 0.6,
                           ease: "easeInOut",
@@ -55,7 +55,7 @@ const Sobre = () => {
             viewport={{ once: true }}
             transition={{
               type: "spring",
-              stiffness: 100,
+              stiffness: 100, damping: 20,
               duration: 0.8,
               delay: 1,
               ease: "easeInOut",
@@ -69,7 +69,7 @@ const Sobre = () => {
             viewport={{ once: true }}
             transition={{
               type: "tween",
-              stiffness: 100,
+              stiffness: 100, damping: 20,
               duration: 0.5,
               delay: 1.3,
               ease: "easeInOut",

@@ -51,7 +51,7 @@ const Contatos = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 100, duration: 0.5, delay: 0.2 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.5, delay: 0.2 }}
               className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold"
             >
               {t("contato.badge", "Contato")}
@@ -60,7 +60,7 @@ const Contatos = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 100, duration: 0.7, delay: 0.4 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.7, delay: 0.4 }}
               className="text-white font-releway font-semibold text-4xl"
             >
               {t("contato.title", "Vamos nos conectar!")}
@@ -81,7 +81,7 @@ const Contatos = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 100, duration: 0.5 }}
+                transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.5 }}
                 src={Avatar}
                 alt="Avatar"
                 className="w-[180px] sm:w-[220px] lg:w-[300px] shrink-0"
@@ -94,7 +94,7 @@ const Contatos = () => {
                       initial={{ opacity: 0, x: -30 }}
                       viewport={{ once: true }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ type: "spring", stiffness: 100, delay: 0.1 * index }}
+                      transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 * index }}
                       key={rede.id}
                       className="flex gap-4 items-center"
                     >
@@ -123,7 +123,7 @@ const Contatos = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 100, duration: 0.7 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.7 }}
               className="w-full glass-card p-8 lg:p-10"
             >
               <h3 className="text-2xl font-bold text-white mb-6">{t("contato.form_title", "Mande uma mensagem")}</h3>

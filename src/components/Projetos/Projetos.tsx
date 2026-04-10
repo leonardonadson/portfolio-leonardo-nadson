@@ -13,6 +13,7 @@ import CSA from "../../assets/projetos/CSA.png";
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { useHoverAnimation } from "../../hooks/useHoverAnimation";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import {
@@ -206,14 +207,15 @@ interface ProjetoCardProps {
 
 export const ProjetoCard = ({ projeto, index, t }: ProjetoCardProps) => {
   const isGithub = projeto.tags.includes("GitHub");
+  const supportsHover = useHoverAnimation();
   return (
     <motion.div
       layout
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      transition={{ type: "spring", stiffness: 100, delay: 0.05 * index }}
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.05 * index }}
+      whileHover={supportsHover ? { y: -5, transition: { duration: 0.2 } } : undefined}
       className="project-card flex flex-col"
     >
       {/* Imagem */}
@@ -240,10 +242,10 @@ export const ProjetoCard = ({ projeto, index, t }: ProjetoCardProps) => {
         </p>
 
         <motion.a
-          whileHover={{ scale: 1.03, transition: { duration: 0.15 } }}
+          whileHover={supportsHover ? { scale: 1.03, transition: { duration: 0.15 } } : undefined}
           href={projeto.link}
           target="_blank"
-          className="flex items-center gap-2 w-fit mt-1 bg-primary text-white font-semibold px-4 py-2 rounded-[10px] hover:bg-secondary transition text-sm"
+          className="flex items-center gap-2 w-fit mt-1 bg-primary text-white font-semibold px-4 py-2 rounded-[10px] hover:bg-secondary transition-colors duration-200 text-sm"
         >
           {isGithub ? <SiGithub size={14} /> : <ExternalLink size={14} />}
           {isGithub ? t("projetos.ver_github", "Ver no GitHub") : t("projetos.conferir", "Conferir")}
@@ -260,6 +262,7 @@ const Projetos = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [filtro, setFiltro] = useState("Todos");
+  const supportsHover = useHoverAnimation();
 
   const projetosFiltrados = filtro === "Todos"
     ? listaProjetos.slice(0, HOME_LIMIT)
@@ -274,7 +277,7 @@ const Projetos = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 100, delay: 0.4 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}
             className="bg-[rgba(104,9,189,0.1)] px-8 py-2 rounded-[20px] text-primary font-releway font-semibold"
           >
             {t("projetos.badge", "Portfólio")}
@@ -283,7 +286,7 @@ const Projetos = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 100, delay: 0.55 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.55 }}
             className="text-white font-releway font-semibold text-4xl"
           >
             {t("projetos.title", "Projetos")}
@@ -322,7 +325,7 @@ const Projetos = () => {
         {/* Ver todos */}
         <div className="flex justify-center mt-10">
           <motion.button
-            whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+            whileHover={supportsHover ? { scale: 1.04, transition: { duration: 0.2 } } : undefined}
             onClick={() => navigate("/projetos")}
             className="flex items-center gap-2 primary-btn text-base"
           >
